@@ -1,0 +1,9 @@
+Array
+(
+    [nama_usaha] => DEPOT16
+    [kecamatan] => Tarakan Tengah
+    [ph] => 7.81
+    [tds] => 57
+    [turbidity] => 1
+    [status_air] => Layak Minum
+)

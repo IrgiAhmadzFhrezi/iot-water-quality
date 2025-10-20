@@ -1,0 +1,279 @@
+body {
+  background: #f0f4f8;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(90deg, #0d6efd, #6610f2);
+  box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+  padding: 0.8rem 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  transition: background-color 0.3s ease;
+  border-radius: 0 0 15px 15px;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  color: #fff !important;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.navbar-nav .nav-link {
+  color: #e0e0ff !important;
+  font-weight: 600;
+  margin-left: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background: #fff;
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  border-radius: 2px;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #fff !important;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+
+/* Hamburger menu icon for mobile */
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.8));
+}
+
+/* Responsive tweak: add some spacing on small screens */
+@media (max-width: 576px) {
+  .navbar-nav .nav-link {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  transition: transform 0.3s ease;
+  background: #fff;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+.card-header {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff;
+  background: linear-gradient(45deg, #00b4db, #0083b0);
+}
+.card-header.ph {
+  background: linear-gradient(45deg, #3a8dff, #0058e3);
+}
+.card-header.turbidity {
+  background: linear-gradient(45deg, #28a745, #19692c);
+}
+.card-header.tds {
+  background: linear-gradient(45deg, #ffb347, #ffcc33);
+  color: #4a3c00;
+}
+#status-card {
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(90deg, #009900, #33cc33);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  user-select: none;
+  transition: background 0.5s ease;
+}
+#status-text.text-warning {
+  background: linear-gradient(90deg, #ffb347, #ffcc33);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#status-text.text-danger {
+  background: linear-gradient(90deg, #e52d27, #b31217);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#status-text.text-success {
+  background: linear-gradient(90deg, #00b09b, #96c93d);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#fuzzy-value {
+  font-size: 1.5rem;
+  color: #6610f2;
+}
+
+/* Container utama 3 kartu */
+.sensor-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+/* Kartu individual (pH, Turbidity, TDS) */
+.sensor-card {
+  flex: 1 1 300px;
+  max-width: 350px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+/* Judul kartu */
+.sensor-card h5 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+/* Nilai utama */
+.sensor-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Status label */
+.sensor-status {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.sensor-number {
+  display: inline-block;
+  min-width: 85px; /* Sesuaikan kalau perlu lebih lebar */
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.value-display span {
+  min-width: 80px; /* atur lebar minimum agar tidak berubah-ubah */
+  display: inline-block;
+  text-align: right;
+}
+
+#bacaph,
+#bacatds,
+#bacakekeruhan {
+  font-variant-numeric: tabular-nums; /* angka sejajar */
+}
+
+/* Label status seperti badge */
+.badge {
+  padding: 0.4em 1em;
+  font-size: 0.9em;
+  border-radius: 8px;
+}
+
+/* Warna status */
+.bg-success {
+  background-color: #28a745;
+  color: white;
+}
+.bg-warning {
+  background-color: #ffc107;
+  color: black;
+}
+.bg-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Grafik (canvas) */
+.sensor-chart {
+  margin-top: 15px;
+  height: 150px;
+}
+
+/* Responsif kecil */
+@media (max-width: 768px) {
+  .sensor-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sensor-card {
+    width: 90%;
+    max-width: 100%;
+  }
+}
+
+canvas {
+  max-height: 200px;
+  margin-top: 10px;
+}
+.value-display {
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+.value-display i {
+  color: #555;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+footer {
+  text-align: center;
+  margin: 40px 0 20px;
+  color: #888;
+  font-size: 0.9rem;
+  user-select: none;
+}
